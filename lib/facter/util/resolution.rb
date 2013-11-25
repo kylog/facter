@@ -449,6 +449,7 @@ class Facter::Util::Resolution
   # @api private
   def value
     return @value if @value
+    return nil unless suitable?
     result = nil
     return result if @code == nil
 
