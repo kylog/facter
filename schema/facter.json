@@ -3,6 +3,22 @@
     "title":       "Facter built-in facts",
     "description": "All the built-in facts for facter cross-platform",
     "type":        "object",
+    "properties": {
+        "network_interfaces": {
+            "type": "array",
+            "items": {
+                "patternProperties": {
+                   "[A-Za-z0-9]+": {
+                      "type": "object",
+                      "properties": {
+                        "mtu": { "type": "integer" },
+                        "mac": { "type": "string"}
+                      }
+                   }
+                }
+            }
+        }
+    },
     "patternProperties": {
         "^blockdevice_[A-Za-z0-9]+_size$" : { "type": "integer" },
         "^blockdevice_[A-Za-z0-9]+_vendor$" : { "type": "string" },
