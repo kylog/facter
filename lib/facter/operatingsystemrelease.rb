@@ -199,7 +199,7 @@ Facter.add(:operatingsystemrelease) do
           if os.producttype == 1
             "XP"
           else
-            os.othertypedescription == "R2" ? "2003 R2" : "2003"
+            os.othertypedescription.nil? ? "2003" : os.othertypedescription == "R2" ? "2003 R2" : "2003"
           end
         else
           Facter[:kernelrelease].value
